@@ -8,24 +8,22 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
-public class SampleTest {
+public class OtusTest {
 
-    protected static WebDriver driver;
-    private Logger logger = LogManager.getLogger(SampleTest.class);
+    protected WebDriver driver;
+    private Logger logger = LogManager.getLogger(OtusTest.class);
     private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
     @Before
     public void setUp(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless", "--silent");
-        System.setProperty("webdriver.chrome.silentOutput", "true");
+        DriverFactory driverFactory = new DriverFactory(DriverFactory.Browser.chrome.toString().toLowerCase());
+        try {
+            WebDriverManager.chromedriver().setup();
+            driver = driverFactory.createDriver();
+        } catch (Exception e){
 
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(options);
-        logger.info("Драйвер поднят");
+        }
     }
 
     @Test
@@ -36,6 +34,9 @@ public class SampleTest {
         Assert.assertNotNull(driver.getTitle());
         logger.info("Title страницы проверен");
     }
+
+//    @Test
+//    public void
 
     @After
     public void setDown(){

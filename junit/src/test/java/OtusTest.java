@@ -26,17 +26,18 @@ public class OtusTest {
         }
     }
 
-    @Test
-    public void checkTitle(){
-        driver.get(cfg.url());
-        logger.info("Выполнен переход на " + cfg.url());
-
-        Assert.assertNotNull(driver.getTitle());
-        logger.info("Title страницы проверен");
-    }
-
 //    @Test
-//    public void
+//    public void checkTitle(){
+//        driver.get(cfg.url());
+//        logger.info("Выполнен переход на " + cfg.url());
+//
+//        Assert.assertNotNull(driver.getTitle());
+//        logger.info("Title страницы проверен");
+//    }
+
+
+
+
 
     @After
     public void setDown(){

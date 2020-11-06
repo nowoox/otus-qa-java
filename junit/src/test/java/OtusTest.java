@@ -9,42 +9,30 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class OtusTest {
+public class OtusTest extends OnlineStoreTest{
 
-    protected WebDriver driver;
-    private Logger logger = LogManager.getLogger(OtusTest.class);
-    private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
+    @Test
+    public void test() throws InterruptedException {
 
-    @Before
-    public void setUp(){
-        DriverFactory driverFactory = new DriverFactory(DriverFactory.Browser.chrome.toString().toLowerCase());
-        try {
-            WebDriverManager.chromedriver().setup();
-            driver = driverFactory.createDriver();
-        } catch (Exception e){
+        OpenPage();
 
-        }
-    }
+        SelectMark();
 
-//    @Test
-//    public void checkTitle(){
-//        driver.get(cfg.url());
-//        logger.info("Выполнен переход на " + cfg.url());
-//
-//        Assert.assertNotNull(driver.getTitle());
-//        logger.info("Title страницы проверен");
-//    }
+        Order();
 
+        Thread.sleep(5000);
 
+        FindFirstItem("ЗУБР");
 
+        CloseModalCompare();
 
+        Thread.sleep(5000);
 
-    @After
-    public void setDown(){
-        if (driver != null) {
-            driver.quit();
-            logger.info("Драйвер остановлен");
-        }
+        FindFirstItem("MAKITA");
+
+        CloseModalCompare();
+
+        Thread.sleep(5000);
     }
 
 }

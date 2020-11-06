@@ -8,6 +8,6 @@ public interface ServerConfig extends Config {
     @Key("url")
     String url();
 
-    @Key("url-online-store")
+    @Key("url_online_store")
     String url_online_store();
 }

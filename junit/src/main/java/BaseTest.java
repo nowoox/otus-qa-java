@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 public class BaseTest {
 
     protected WebDriver driver;
-    private Logger logger = LogManager.getLogger(BaseTest.class);
+    public Logger logger = LogManager.getLogger(BaseTest.class);
     private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
     @Before
@@ -19,6 +19,7 @@ public class BaseTest {
         try {
             WebDriverManager.chromedriver().setup();
             driver = driverFactory.createDriver();
+            logger.info("Драйвер запущен");
         } catch (Exception e){
 
         }

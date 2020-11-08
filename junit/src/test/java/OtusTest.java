@@ -7,6 +7,8 @@ public class OtusTest extends YaTest {
 
         String[] mark = {"Samsung", "Xiaomi"};
 
+        GoToMarket();
+
         GoToPhones();
 
         SelectMark(mark);
@@ -17,7 +19,9 @@ public class OtusTest extends YaTest {
 
         GoToCompare();
 
-        Thread.sleep(5000);
+        CheckNumberOfCompareItems(mark);
+
+        //Thread.sleep(5000);
     }
 
 }

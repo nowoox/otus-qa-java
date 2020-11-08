@@ -15,7 +15,7 @@ public class OtusTest extends YaTest {
 
         AddToCompare(mark);
 
-
+        GoToCompare();
 
         Thread.sleep(5000);
     }

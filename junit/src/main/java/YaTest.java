@@ -10,7 +10,7 @@ import java.util.List;
 public class YaTest extends BaseTest{
 
     public void GoToMarket(){
-        driver.get("https://market.yandex.ru/");
+        driver.get(cfg.url_online_store());
         logger.info("Выполнен переход на Маркет");
     }
 
@@ -69,7 +69,7 @@ public class YaTest extends BaseTest{
     }
 
     public void GoToCompare(){
-        driver.get("https://market.yandex.ru/compare");
+        driver.get(cfg.url_online_store_compare());
         logger.info("Выполнен переход в раздел сравнения");
     }
 

@@ -11,7 +11,7 @@ public class BaseTest {
 
     protected WebDriver driver;
     public Logger logger = LogManager.getLogger(BaseTest.class);
-    private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
+    public ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
     @Before
     public void setUp(){

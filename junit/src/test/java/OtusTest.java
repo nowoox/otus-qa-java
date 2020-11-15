@@ -21,7 +21,7 @@ public class OtusTest extends YaTest {
 
         CheckNumberOfCompareItems(mark);
 
-        //Thread.sleep(5000);
+        Thread.sleep(5000);
     }
 
 }

@@ -48,12 +48,16 @@ public class YaTest extends BaseTest{
     public void AddToCompare(String[] mark){
 
         for (String item : mark){
+
+            WebElement compareButton = (new WebDriverWait(driver, 6))
+                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//article//span[text()[contains(., '" + item + "')]]")));
+
             Actions builder = new Actions(driver);
-            builder.moveToElement(driver.findElement(By.xpath("//article//span[text()[contains(., '" + item + "')]]")))
+            builder.moveToElement(compareButton)
                     .build()
                     .perform();
 
-            WebElement addToCompareElement = (new WebDriverWait(driver, 4))
+            WebElement addToCompareElement = (new WebDriverWait(driver, 6))
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//article//span[text()[contains(., '" + item + "')]]/ancestor::article/div[2]/div[1]")));
             addToCompareElement.click();
             logger.info("Первый телефон " + item + " добавлен к сравнению");

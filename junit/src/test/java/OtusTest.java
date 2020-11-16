@@ -1,49 +1,27 @@
-import config.ServerConfig;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.aeonbits.owner.ConfigFactory;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 
-public class OtusTest {
-
-    protected WebDriver driver;
-    private Logger logger = LogManager.getLogger(OtusTest.class);
-    private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
-
-    @Before
-    public void setUp(){
-        DriverFactory driverFactory = new DriverFactory(DriverFactory.Browser.chrome.toString().toLowerCase());
-        try {
-            WebDriverManager.chromedriver().setup();
-            driver = driverFactory.createDriver();
-        } catch (Exception e){
-
-        }
-    }
+public class OtusTest extends YaTest {
 
     @Test
-    public void checkTitle(){
-        driver.get(cfg.url());
-        logger.info("Выполнен переход на " + cfg.url());
+    public void yatest() throws InterruptedException {
 
-        Assert.assertNotNull(driver.getTitle());
-        logger.info("Title страницы проверен");
-    }
+        String[] mark = {"Samsung", "Xiaomi"};
 
-//    @Test
-//    public void
+        GoToMarket();
 
-    @After
-    public void setDown(){
-        if (driver != null) {
-            driver.quit();
-            logger.info("Драйвер остановлен");
-        }
+        GoToPhones();
+
+        SelectMark(mark);
+
+        Sort();
+
+        AddToCompare(mark);
+
+        GoToCompare();
+
+        CheckNumberOfCompareItems(mark);
+
+        Thread.sleep(5000);
     }
 
 }
